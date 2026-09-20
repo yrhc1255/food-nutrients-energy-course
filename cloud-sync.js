@@ -1,0 +1,5 @@
+import {gasEndpoint,courseId,cohortId} from './sync-config.js';
+const best=(s,id)=>{const r=s.activities?.[id]||[];return r.length?Math.max(...r.map(x=>x.score)):null;};
+const latest=(s,id)=>s.activities?.[id]?.at(-1)?.score??null;
+export function buildSummary(session,profile,eventId,testMarker=false){return {eventId,courseId,cohortId,className:profile.className,seat:profile.seat,name:profile.name,learningTotal:Object.values(session.questions||{}).reduce((n,q)=>n+(q.points||0),0),formative1:latest(session,'formative1'),formative2:latest(session,'formative2'),game1:best(session,'game1'),game2:best(session,'game2'),summative:latest(session,'summative'),hero:best(session,'hero'),completionPercent:100,contentVersion:'2026-09-20',testMarker:Boolean(testMarker),submittedAt:new Date().toISOString()};}
+export async function sendGas(summary){if(!gasEndpoint)throw new Error('GAS 尚未設定');const r=await fetch(gasEndpoint,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(summary)});if(!r.ok)throw new Error(`GAS ${r.status}`);const data=await r.json();if(!data.ok)throw new Error(data.error||'GAS 寫入失敗');return data;}

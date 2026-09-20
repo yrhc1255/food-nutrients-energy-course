@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#faf7ef">
+  <title>食物裡的秘密｜食物中的養分與能量</title>
+  <meta name="description" content="從餐桌出發，透過預測、操作、觀察與證據，探索食物中的養分。國中自然科互動課程本機示範。">
+  <link rel="icon" href="assets/seed.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到學習內容</a>
+  <div class="preview-note">完整課程審閱版 <span>・進度只保留於本次開啟期間</span><span id="mode-label"></span></div>
+  <header class="site-header"><div class="header-inner"><a class="brand" href="#home"><span class="seed" aria-hidden="true"></span>食物裡的秘密</a><div class="header-actions"><span id="identity-label"></span><button class="quiet" id="map-open" type="button">課程地圖</button><a class="quiet" href="#home">首頁</a></div></div></header>
+  <div id="learning-nav" hidden><div class="nav-inner"><div class="course-rail-brand"><a href="#home"><span class="seed" aria-hidden="true"></span><strong>食物裡的秘密</strong></a><button id="teacher-open" class="teacher-button" type="button"><span class="lock-icon" aria-hidden="true"></span><span>教師模式</span></button></div><button class="nav-scroll" id="nav-scroll-left" type="button" aria-label="向左捲動課程導覽">‹</button><nav id="progress" aria-label="完整課程導覽"></nav><button class="nav-scroll" id="nav-scroll-right" type="button" aria-label="向右捲動課程導覽">›</button><div class="nav-score"><span>學習總分</span><strong id="nav-score-value">0／150</strong></div></div></div>
+  <main id="main" tabindex="-1"></main>
+  <footer class="site-footer"><span>食物中的養分與能量</span><span>仔細觀察，讓證據說話。</span></footer>
+  <div id="score-toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="map-dialog"><div class="dialog-head"><h2>這次的學習旅程</h2><button type="button" class="quiet" data-close>關閉</button></div><p>完整課程共 15 頁，現在全部開放自由瀏覽。每個學習頁都有 1～3 個互動探索活動，以及同頁一次呈現的五種多元評量。</p><div id="map-items"></div></dialog>
+  <dialog id="teacher-dialog"><form id="teacher-form"><div class="dialog-head"><h2>教師瀏覽</h2><button type="button" class="quiet" data-close>關閉</button></div><p>自由切換已製作的頁面，示範作答不影響學生紀錄。</p><label class="field">瀏覽密碼<input id="teacher-password" type="password" autocomplete="off" required></label><p id="teacher-error" class="error" role="alert"></p><button type="submit" class="primary">進入教師瀏覽</button></form></dialog>
+  <dialog id="image-dialog"><div class="dialog-head"><h2 id="image-title">放大觀察</h2><button type="button" class="quiet" data-close>關閉</button></div><div id="image-content"></div></dialog>
+  <noscript>請啟用瀏覽器的 JavaScript，以操作示範課程。</noscript>
+</body>
+</html>
